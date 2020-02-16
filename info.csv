@@ -1,0 +1,40 @@
+NAME,DESCRIPTION,CATEGORIES,VERSION
+junit," - JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck. - ",Testing Frameworks,4.12
+itext," - iText, a free Java-PDF library - ",PDF Libraries,2.1.7
+standard, - Standard - ,JSP Tag Libraries,1.1.2
+javax.el-api, - Expression Language 3.0 API - ,Expression LanguagesJava Specifications,2.2.5
+javax.servlet.jsp.jstl-api, - JavaServer Pages(TM) Standard Tag Library API - ,JSP Tag LibrariesJava Specifications,1.2.1
+tiles-api," - Tiles APIs, containing interfaces and classes to interact with - Tiles. - ",,3.0.5
+tiles-api," - Tiles APIs, containing interfaces and classes to interact with - Tiles. - ",,2.2.2
+tiles-el, - Tiles EL (Expression Language) support: Classes and tag libraries to use EL as an expression language in attribute expressions. - ,,2.2.2
+poi, - Apache POI - Java API To Access Microsoft Format Files - ,Excel Libraries,3.10.1
+javax.servlet.jsp-api, - JavaServer Pages(TM) API - ,Java Specifications,2.2.1
+tiles-extras," - Extras for Tiles, including non-standard, non-generic, non-identifiable components that may be useful for Tiles users. - ",,2.2.2
+tiles-jsp, - Tiles JSP support: Classes and tag libraries to use Tiles in a - JSP environment. - ,JSP Tag Libraries,2.2.2
+tiles-servlet," - Tiles servlet support, to enable use of Tiles inside a Servlet environment. - ",,3.0.5
+tiles-jsp, - Tiles JSP support: Classes and tag libraries to use Tiles in a - JSP environment. - ,JSP Tag Libraries,3.0.5
+freemarker," - FreeMarker is a ""template engine""; a generic tool to generate text output based on templates. - ",Template Engines,2.3.20
+spring-webmvc, - Spring Web MVC - ,Web Frameworks,4.1.4.RELEASE
+spring-web, - Spring Web - ,Web Frameworks,4.1.4.RELEASE
+spring-context-support, - Spring Context Support - ,,4.1.4.RELEASE
+spring-core, - Spring Core - ,Core Utilities,4.1.4.RELEASE
+javax.servlet-api, - Java Servlet API - ,Java Specifications,3.0.1
+tiles-servlet," - Tiles servlet support, to enable use of Tiles inside a Servlet environment. - ",,2.2.2
+tiles-extras," - Extras for Tiles, including non-standard, non-generic, non-identifiable components that may be useful for Tiles users. - ",,3.0.5
+spring-expression, - Spring Expression Language (SpEL) - ,Expression Languages,4.1.4.RELEASE
+tiles-core," - Tiles Core Library, including basic implementation of the APIs. - ",,3.0.5
+jxl," - JExcelApi is a java library which provides the ability to read, write, and modify Microsoft Excel spreadsheets. - ",Excel Libraries,2.6.12
+jstl, - JSTL - ,Java Specifications,1.2
+jasperreports, - Free Java Reporting Library - ,,6.0.0
+tiles-el, - Tiles EL (Expression Language) support: Classes and tag libraries to use EL as an expression language in attribute expressions. - ,,3.0.5
+tiles-core," - Tiles Core Library, including basic implementation of the APIs. - ",,2.2.2
+jackson-dataformat-xml," - Data format extension for Jackson (http://jackson.codehaus.org) to offer - alternative support for serializing POJOs as XML and deserializing XML as pojos. - Support implemented on top of Stax API (javax.xml.stream), by implementing core Jackson Streaming API types like JsonGenerator, JsonParser and JsonFactory. - Some data-binding types overridden as well (ObjectMapper sub-classed as XmlMapper). - ",XML Processing,2.4.4
+rome," - All Roads Lead to ROME. ROME is a set of Atom/RSS Java utilities that make it - easy to work in Java with most syndication formats. Today it accepts all flavors of RSS - (0.90, 0.91, 0.92, 0.93, 0.94, 1.0 and 2.0), Atom 0.3 and Atom 1.0 feeds. Rome includes - a set of parsers and generators for the various flavors of feeds, as well as converters - to convert from one format to another. The parsers can give you back Java objects that - are either specific for the format you want ... - ",RSS and Atom Libraries,1.5.0
+spring-context, - Spring Context - ,Dependency Injection,4.1.4.RELEASE
+jackson-databind, - General data-binding functionality for Jackson: works on core streaming API - ,JSON Libraries,2.4.4
+velocity, - Apache Velocity is a general purpose template engine. - ,Template Engines,1.7
+spring-beans, - Spring Beans - ,Dependency Injection,4.1.4.RELEASE
+spring-web, - Spring Web - ,Web Frameworks,4.1.4.RELEASE
+groovy-all," - Groovy: A powerful, dynamic language for the JVM - ",JVM Languages,2.3.9
+velocity-tools-view, - Velocity Tools View - ,,1.4
+spring-oxm, - Spring Object/XML Marshalling - ,XML Processing,4.1.4.RELEASE
