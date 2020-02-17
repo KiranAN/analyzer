@@ -12,7 +12,8 @@ const csvWriter = createCsvWriter({
     header: [{id:'name',title:'NAME'},
     {id:'description',title:'DESCRIPTION'},
     {id:'categories',title:'CATEGORIES'},
-    {id:'version',title:'VERSION'}],
+    {id:'version',title:'VERSION'},
+    {id:'latestVersion',title:'LATEST VERSION'}],
     path: '/info.csv'
 });
 
@@ -37,8 +38,14 @@ var infoFetcher = async(url,totalLength,artifact,version)=>{
     var gridHeader = $('table.grid th');
     var desc = $("div.im-description").text().replace(/(\r\n|\n|\r)/gm," - ");
     var categorydesc = $("td a.b.c").text();
-   
-    var depObj = {name:artifact,description:desc,categories:categorydesc,version:version}
+    var latestVersion = ''; 
+    tablerow.each(function(index,element){        
+        //console.log(index,$(element).text());
+        if(index ==0){
+            latestVersion = $(element).text();
+        }
+    });
+    var depObj = {name:artifact,description:desc,categories:categorydesc,version:version,latestVersion:latestVersion};
     depMaps.push(depObj);
     
     if(totalLength == count){            
