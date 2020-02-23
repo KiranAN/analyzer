@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Maven Info.</title>
+	<link href="libs/css/bootstrap.min.css" rel="stylesheet" />
+	<style>
+	/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+	.jsontotable table, .jsontotable th, .jsontotable td {
+		border: 1px solid black;
+		margin: 10px;
+	}
+    .jsheader table, .jsheader th, .jsheader td {
+		border: 1px solid black;
+		margin: 10px;
+	}
+  code {
+    white-space: normal;
+  }
+  .jstable{
+      overflow:scroll;
+      width:1200px;
+      height:500px;  
+      font-size:12px;
+  }
+  .jsheader{
+      margin-top:10px;
+      width:1200px; 
+      font-size:12px;     
+  }
+  th,tr{
+      width:20px !important;
+      height:10px;
+  }
+	</style>
+</head>
+<body>
+	<div class="container">
+		
+    <div id="jsontotable-objwithdata" class="jsontotable"></div>
+        <div id="header" class="jsontotable jsheader">
+            <table class="table table-hover">
+                <tbody >
+                    <tr>
+                        <td>Name</td>
+                        <td>Description</td>
+                        <td>Categories</td>
+                        <td>Version</td>
+                        <td>Latest Version</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+		<div id="jsontotable-str" class="jsontotable jstable"></div>
+	</div>
+		<script type="text/javascript" src="libs/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="dist/jquery.jsontotable.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			
+			$.getJSON("/info", function(result){
+				$.jsontotable(result, {
+					id: "#jsontotable-str",
+					className: "table table-hover"
+				});
+			  });
+			});	
+		</script>
+</body>
+</html>

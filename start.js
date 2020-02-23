@@ -21,4 +21,21 @@ parser.req(files,function(urlsreturn){
     }    
         
 });
+//newer
+parser.req(files,function(urlsreturn){
+    urls = urlsreturn;    
+    var line ="";
+    for(var i=0;i<urls.length;i++){        
+        //webscraper.infoFetcher(urls[i].url,urls.length,urls[i].artifact,urls[i].version);
+        line = line+urls[i].artifact+","+urls[i].url+","+urls[i].version+"\r\n";
+               
+    }
+    fs.writeFile("mvnurls.txt",line,function(err){
+        if(err){
+            throw err;
+        }
+        console.log("saved!");
+    })
+    //webscraper.infoFetcher(urls[0].url,1,urls[0].artifact,urls[0].version);
+});
 
