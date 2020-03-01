@@ -54,11 +54,11 @@ table {
 }
 	.jsontotable table, .jsontotable th, .jsontotable td {
 		border: 1px solid black;
-		margin: 10px;
+		/*margin: 10px;*/
 	}
     .jsheader table, .jsheader th, .jsheader td {
 		border: 1px solid black;
-		margin: 10px;
+		/*margin: 10px;*/
 	}
   code {
     white-space: normal;
@@ -66,7 +66,7 @@ table {
   .jstable{
       overflow:scroll;
       width:1200px;
-      height:500px;  
+      height:400px;  
       font-size:12px;
   }
   .jsheader{
@@ -78,39 +78,421 @@ table {
       width:20px !important;
       height:10px;
   }
+  .infodiv{
+	  display:none;
+  }
+  .header{
+	margin-top: 10px;
+    margin-left: 5%;
+	/*border: 1px solid;
+    height: 22px;*/
+    width:1200px;
+    text-align: center;
+    /*border-color: #000;
+    background-color: ivory;
+    vertical-align: middle;*/
+	font-weight:bold;
+	font-size:24px;
+  }
+  .header >label{
+	font-size: 16px;
+    font-family: sans-serif;
+    margin-top: 0.3%;
+  }
+  .loadInfo{
+	margin-top: 10px;
+    margin-left: 5%;
+	margin-right:20px;
+	
+	height:20px;
+  }
+  
+  #infogreentick,#infogreentickSubmit,#greenTickLocDiv,#greenTickLocDivName{
+	display: none;
+	width: 19px;
+    height: 17px;	
+	margin-left:10px;
+  }
+  .floatLeft{
+	float:left;
+  }
+  #depSelect{
+	margin-right:10px;	
+	width:400px;
+  }
+  #infoLabel,.locDivLabel{
+	margin-right:10px;	
+  }
+  #infoFetchWait, #projectName{
+	  display:none;
+  }
+  .clear{
+	  clear:both;
+  }
+  #submitBTN,#locDiv,.infodiv2,#locDivName{
+	margin-top: 20px;
+	margin-left:5%;
+  }
+  #projectName{
+	margin-top: 20px;
+	margin-left:5%;
+	font-size: 16px;
+    font-weight: bold;
+    font-family: Helvetica SANS-SERIF;
+  }
+  .infodiv{
+	margin-left:5%;
+  }
+  #locDivTextArea,#locDivNameText{
+	width:400px;
+  }
+  table{
+	  margin:0px !important;
+  }
+  .locDivLabel, #infoLabel{
+	font-size: 16px;
+    font-weight: bold;
+    font-family: Helvetica SANS-SERIF;
+	width: 200px;
+  }
 	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="info">
+
+		<div class="header page-header">
+			<h1>Dependency Information Portal</h1>
+		</div>
+		<div id="locDivName" class="form-group"">
+			<label class="floatLeft locDivLabel">Name of the project</label>
+			<input id="locDivNameText" class="floatLeft form-control" onblur="onblurName()"/>
+			<div id="greenTickLocDivName" class="floatLeft">
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+					<path style="fill:#B7E183;" d="M502.87,75.474c-12.201-12.204-31.952-12.205-44.154-0.001L163.89,370.299L53.284,259.693
+						c-12.201-12.204-31.952-12.205-44.154-0.001c-12.173,12.174-12.173,31.981,0,44.153L141.814,436.53
+						c12.199,12.198,31.953,12.2,44.153,0L502.87,119.626C515.042,107.453,515.042,87.645,502.87,75.474z"/>
+					<path style="fill:#71DE56;" d="M502.87,75.474c-12.201-12.204-31.952-12.205-44.154-0.001L243.511,290.678v88.306L502.87,119.626
+						C515.042,107.453,515.042,87.645,502.87,75.474z"/>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					</svg>
+			</div>
+		</div>
+		<div class="clear">
+
+		</div>
+		<div id="locDiv" class="form-group"">
+			<label class="floatLeft locDivLabel">Project location </label>
+			<textarea id="locDivTextArea" class="floatLeft form-control" onblur="onblurTextArea()"></textarea>
+			<div id="greenTickLocDiv" class="floatLeft">
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+					<path style="fill:#B7E183;" d="M502.87,75.474c-12.201-12.204-31.952-12.205-44.154-0.001L163.89,370.299L53.284,259.693
+						c-12.201-12.204-31.952-12.205-44.154-0.001c-12.173,12.174-12.173,31.981,0,44.153L141.814,436.53
+						c12.199,12.198,31.953,12.2,44.153,0L502.87,119.626C515.042,107.453,515.042,87.645,502.87,75.474z"/>
+					<path style="fill:#71DE56;" d="M502.87,75.474c-12.201-12.204-31.952-12.205-44.154-0.001L243.511,290.678v88.306L502.87,119.626
+						C515.042,107.453,515.042,87.645,502.87,75.474z"/>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					</svg>
+			</div>
+		</div>	
 		
-    <div id="jsontotable-objwithdata" class="jsontotable"></div>
-        <div id="header" class="jsontotable jsheader">
-            <table class="table table-hover">
+		<div class="clear">
+
+		</div>
+		<div class="loadInfo floatLeft form-group""> 
+			<label id="infoLabel" class="floatLeft">
+				Select Info to be fetched
+			</label>
+			<select  id="depSelect"  class="floatLeft form-control" onchange="selectChanged()">
+				<option value=0>Please Select!</option>
+				<option value=1>POM</option>
+				<option value=2>JSON</option>				
+			</select>			
+			<span id="infogreentick"  class="floatLeft">
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+					<path style="fill:#B7E183;" d="M502.87,75.474c-12.201-12.204-31.952-12.205-44.154-0.001L163.89,370.299L53.284,259.693
+						c-12.201-12.204-31.952-12.205-44.154-0.001c-12.173,12.174-12.173,31.981,0,44.153L141.814,436.53
+						c12.199,12.198,31.953,12.2,44.153,0L502.87,119.626C515.042,107.453,515.042,87.645,502.87,75.474z"/>
+					<path style="fill:#71DE56;" d="M502.87,75.474c-12.201-12.204-31.952-12.205-44.154-0.001L243.511,290.678v88.306L502.87,119.626
+						C515.042,107.453,515.042,87.645,502.87,75.474z"/>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					</svg>
+			</span>
+		</div>
+		<div class="clear">
+
+		</div>
+		<div id="submitBTN" class="floatLeft form-group"">
+			<button class="btn btn-default floatLeft" onclick="onSubmit()" >Submit</button>
+			<span id="infogreentickSubmit"  class="floatLeft">
+				<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						viewBox="0 0 511.999 511.999" style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+					<path style="fill:#B7E183;" d="M502.87,75.474c-12.201-12.204-31.952-12.205-44.154-0.001L163.89,370.299L53.284,259.693
+						c-12.201-12.204-31.952-12.205-44.154-0.001c-12.173,12.174-12.173,31.981,0,44.153L141.814,436.53
+						c12.199,12.198,31.953,12.2,44.153,0L502.87,119.626C515.042,107.453,515.042,87.645,502.87,75.474z"/>
+					<path style="fill:#71DE56;" d="M502.87,75.474c-12.201-12.204-31.952-12.205-44.154-0.001L243.511,290.678v88.306L502.87,119.626
+						C515.042,107.453,515.042,87.645,502.87,75.474z"/>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					<g>
+					</g>
+					</svg>
+			</span>
+		</div>
+		<div class="clear">
+
+		</div>
+		<div id="projectName">
+			<label class="projectNameLabel floatLeft">Details for &nbsp; : &nbsp;</label>
+			<label id="projectNameLabel1" class="floatLeft projectNameLabel"></label>
+		</div>
+		<div class="clear">
+
+		</div>
+    	<div id="jsontotable-objwithdata" class="jsontotable"></div>
+        <div id="header" class="jsontotable jsheader infodiv infodiv2">
+            <table class="table table-hover table-striped">
                 <tbody >
-                    <tr>
-                        <td>Name</td>
-                        <td>Description</td>
-                        <td>Categories</td>
-                        <td>Version</td>
-                        <td>Latest Version</td>
-                    </tr>
+								<tr>
+									<td style="
+				width: 12.3%;
+			">Name</td>
+									<td style="
+				width: 56.12%;
+			">Description</td>
+									<td style="
+				width: 11.35%;
+			">Categories</td>
+									<td style="
+				width: 9.9%;
+			">Version</td>
+									<td >Latest Version</td>
+								</tr>
                 </tbody>
             </table>
-        </div>
-		<div id="jsontotable-str" class="jsontotable jstable"></div>
+		</div>
+		<div class="clear">
+
+		</div>
+		<div id="infoFetchWait" class="loadInfo">
+			<span>Please wait while we fetch Info for  </span>
+			<label id="pname"></label>
+		</div>
+		<div id="jsontotable-str" class="jsontotable jstable infodiv"></div>
 	</div>
 		<script type="text/javascript" src="libs/js/jquery-1.10.2.min.js"></script>
 		<script type="text/javascript" src="dist/jquery.jsontotable.min.js"></script>
 		<script type="text/javascript">
+		var projectName  ='';
+		var path ='';
 		$(document).ready(function() {
 			
-			$.getJSON("/info", function(result){
-				$.jsontotable(result, {
-					id: "#jsontotable-str",
-					className: "table table-hover"
-				});
-			  });
+			/*$.getJSON("/info", function(result){
+				
+			  });*/
 			});	
+		var selectChanged = function(){
+			var value = document.getElementById("depSelect").value;
+			console.log(document.getElementById("depSelect").value);
+			if(value>0){
+				showGreenTick("infogreentick")
+			}else{
+				hideGreenTick("infogreentick");
+				hideGreenTick("infogreentickSubmit");
+			};
+		}
+		var onSubmit = function(){
+			var value = document.getElementById("depSelect").value;
+			console.log(document.getElementById("depSelect").value);
+			if(value>0){
+				showGreenTick("infogreentickSubmit")
+				$("#infoFetchWait").css('display','block');
+				parse();
+			}else{
+				hideGreenTick("infogreentickSubmit")				
+			};
+
+		}
+		var showGreenTick = function(id){
+			document.getElementById(id).style.display="block";
+		}
+		var hideGreenTick = function(id){
+			document.getElementById(id).style.display="none";
+		}
+		var onblurTextArea = function(){
+			path = document.getElementById("locDivTextArea").value;
+			if(path =="" || path ==null || path==undefined){
+				hideGreenTick("greenTickLocDiv");
+				hideGreenTick("infogreentick");
+				hideGreenTick("infogreentickSubmit");				
+			}else{
+				showGreenTick("greenTickLocDiv");
+			}
+		}
+
+		var onblurName = function(){
+			projectName = document.getElementById("locDivNameText").value;
+			if(projectName =="" || projectName ==null || projectName==undefined){
+				hideGreenTick("greenTickLocDiv");
+				hideGreenTick("infogreentick");
+				hideGreenTick("infogreentickSubmit");	
+				hideGreenTick("greenTickLocDivName");		
+			}else{
+				showGreenTick("greenTickLocDivName");
+			}
+		}
+
+		var parse = function(){
+			$.ajax({
+			type: 'GET',
+			url: 'http://localhost:3001/parse'+'?p='+path,
+			success: function(response) { 				
+				setTimeout(function(){
+					getInfo();
+				},3000);				
+			},
+			error: function(xhr, status, err) {
+				console.log(xhr.responseText);
+			}
+			});
+		}
+		var getInfo = function(){
+			$.ajax({
+			type: 'GET',
+			url: 'http://localhost:3001/info',
+			success: function(response) { 				
+				setTimeout(function(){
+					$("#infoFetchWait").css('display','none');
+					$("#projectName").css('display','block');
+					$("#pname").html(projectName);
+					$("#projectNameLabel1").text(projectName);
+					$.jsontotable(response, {
+						id: "#jsontotable-str",
+						className: "table table-hover table-striped"
+					});
+					$(".infodiv").css('display','block');
+				},3000);				
+			},
+			error: function(xhr, status, err) {
+				console.log(xhr.responseText);
+			}
+			});
+		}
 		</script>
 </body>
 </html>

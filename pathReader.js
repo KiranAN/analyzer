@@ -20,9 +20,10 @@ function fromDir(startPath,filter,callback){
     };
 };
 
-function getAllFiles(){
+function getAllFiles(qpath){
     var files = [];
-    fromDir('D://mvc',/\pom.xml$/,function(filename){
+    var path = qpath||'D://Kiran//springmvcexample//springmvcexample';
+    fromDir(path,/\pom.xml$/,function(filename){
         //console.log('-- found: ',filename);
         files.push(filename);
     });
