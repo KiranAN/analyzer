@@ -20,10 +20,10 @@ public class App
 	public static ArrayList<String> urls = new ArrayList<String>();
 	public static String version = "";
 	public static String artifactName = "";
-	
+	private static final String EMPTY_STRING = "";
 	public static void main( String[] args )
     {
-		writeFile("NAME,DESCRIPTION,CATEGORIES,VERSION,LATEST VERSION");
+		writeFile("NAME,DESCRIPTION,CATEGORIES,VERSION,LATEST VERSION,CVE NUMBER,CVE SECURITY INFO,EXTERNAL LINK");
         readFile();
         for(int i =0;i<urls.size();i++) {
         	scrapeUrl(urls.get(i).toString());
@@ -40,7 +40,9 @@ public class App
             String latestVersion = doc.select("table.grid.versions tr:first-child td:nth-child(2)").get(0).text();
             // With the document fetched, we use JSoup's title() method to fetch the title
             System.out.printf("Title: %s\n %s", desc,categorydesc+",v="+latestVersion);
-            writeFile(dataStr[0]+","+desc+","+categorydesc+","+dataStr[2]+","+latestVersion);
+            String cvedetails = parseCVEData(dataStr[0]);
+            System.out.println(cvedetails);
+            writeFile(dataStr[0]+","+desc+","+categorydesc+","+dataStr[2]+","+latestVersion+","+cvedetails);
           // In case of any IO errors, we want the messages written to the console
           } catch (IOException e) {
             e.printStackTrace();
@@ -65,6 +67,46 @@ public class App
 	      System.out.println("An error occurred.");
 	      e.printStackTrace();
 	    }
+    }
+    
+    public static String addCVEInfo(String name) {
+    	File file = new File("D:\\cvedata\\2020.csv");
+    	String returnLine = EMPTY_STRING;
+    	try {
+    	    Scanner scanner = new Scanner(file);
+    	    String line = EMPTY_STRING;
+    	    while (scanner.hasNextLine()) {
+    	        line = scanner.nextLine();    	        
+    	        if(line.indexOf(name)>-1) { 
+    	        	returnLine = line;
+    	        }
+    	    }
+    	    scanner.close();
+    	    return returnLine;
+    	} catch(FileNotFoundException e) { 
+    	    //handle this
+    		return EMPTY_STRING;
+    	}    	
+    }
+    
+    public static String parseCVEData(String name) {
+    	String cveInfo = addCVEInfo(name);
+    	if(cveInfo.isEmpty())
+    		return EMPTY_STRING;
+        String[] cveList = cveInfo.split(",");
+        String cveDetails = EMPTY_STRING;
+        String cveNumber = EMPTY_STRING;
+        String cveSecurityInfo =EMPTY_STRING;
+        String cveLink = EMPTY_STRING;
+        System.out.println(cveInfo);
+        if(cveList.length >0) {
+        	cveNumber = cveList[0];
+        	cveSecurityInfo = cveList[2];
+        	cveLink = cveList[3];
+        	cveNumber = cveList[0];
+        	cveDetails = cveNumber+","+cveSecurityInfo+","+cveLink+"";
+        }
+        return cveDetails;
     }
     public static void writeFile(String data) {
     	 try {
